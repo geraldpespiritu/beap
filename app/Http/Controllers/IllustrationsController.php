@@ -39,7 +39,7 @@ class IllustrationsController extends Controller
         $this->validate($request, [
             'illustrationName' => 'required',
             'illustrationDescription' => 'required',
-            'illustrationImage' => 'image|nullable|max:1999'
+            'illustrationImage' => 'image|nullable|max:1999',
         ]);
 
         // Handle File Upload
