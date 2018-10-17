@@ -15,7 +15,7 @@
                     @endif
 
                     <div class="panel-body">
-                        <a href="http://localhost:8080/beap/public/posts/create" class="btn btn-primary">Create Post</a>
+                        <a href="http://localhost:85/beap/public/posts/create" class="btn btn-primary">Create Post</a>
                         <h3>Your Blog Post</h3>
                         @if(count($posts) > 0)
                         <table class="table table-striped">
@@ -27,7 +27,7 @@
                             @foreach($posts as $post)
                               <tr>
                                   <td>{{$post->title}}</td>
-                                  <td><a href="http://localhost:8080/beap/public/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a> </td>
+                                  <td><a href="http://localhost:85/beap/public/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a> </td>
                                   <td>
                                       {!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
                                       {{Form::hidden('_method', 'DELETE')}}

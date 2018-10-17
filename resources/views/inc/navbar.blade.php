@@ -2,7 +2,7 @@
 
 {{--
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="http://localhost:8080/beap/public/">{{config('app.name', 'BEAP')}}</a>
+    <a class="navbar-brand" href="http://localhost:85/beap/public/">{{config('app.name', 'BEAP')}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,16 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="active">
-                <a class="nav-link" href="http://localhost:8080/beap/public/">Home </a>
+                <a class="nav-link" href="http://localhost:85/beap/public/">Home </a>
             </li>
             <li class="active">
-                <a class="nav-link" href="http://localhost:8080/beap/public/about">About</a>
+                <a class="nav-link" href="http://localhost:85/beap/public/about">About</a>
             </li>
             <li class="active">
-                <a class="nav-link" href="http://localhost:8080/beap/public/services">Services</a>
+                <a class="nav-link" href="http://localhost:85/beap/public/services">Services</a>
             </li>
             <li class="active">
-                <a class="nav-link" href="http://localhost:8080/beap/public/posts">Blog</a>
+                <a class="nav-link" href="http://localhost:85/beap/public/posts">Blog</a>
             </li>
         </ul>
 
@@ -51,25 +51,25 @@
             @else
             <ul class="navbar-nav mr-auto">
                 <li class="active">
-                    <a class="nav-link" href="http://localhost:8080/beap/public/beapDashboard">BEAP Dashboard </a>
+                    <a class="nav-link" href="http://localhost:85/beap/public/beapDashboard">BEAP Dashboard </a>
                 </li>
                 {{--    <li class="active">
-                        <a class="nav-link" href="http://localhost:8080/beap/public/">Home </a>
+                        <a class="nav-link" href="http://localhost:85/beap/public/">Home </a>
                     </li>
                 <li class="active">
-                    <a class="nav-link" href="http://localhost:8080/beap/public/about">About</a>
+                    <a class="nav-link" href="http://localhost:85/beap/public/about">About</a>
                 </li>
                 <li class="active">
-                    <a class="nav-link" href="http://localhost:8080/beap/public/services">Services</a>
+                    <a class="nav-link" href="http://localhost:85/beap/public/services">Services</a>
                 </li>--}}
                 <li class="active">
-                    <a class="nav-link" href="http://localhost:8080/beap/public/posts">Blog</a>
+                    <a class="nav-link" href="http://localhost:85/beap/public/posts">Blog</a>
                 </li>
                 <li class="active">
-                    <a class="nav-link" href="http://localhost:8080/beap/public/calamities">Calamities</a>
+                    <a class="nav-link" href="http://localhost:85/beap/public/calamities">Calamities</a>
                 </li>
                 <li class="active">
-                    <a class="nav-link" href="http://localhost:8080/beap/public/illustrations">Illustrations</a>
+                    <a class="nav-link" href="http://localhost:85/beap/public/illustrations">Illustrations</a>
                 </li>
             </ul>
 
@@ -101,7 +101,7 @@
                                 @csrf
                             </form>
 
-                            <a class="dropdown-item" href="http://localhost:8080/beap/public/dashboard">Dashboard</a>
+                            <a class="dropdown-item" href="http://localhost:85/beap/public/dashboard">Dashboard</a>
 
 
                         </div>

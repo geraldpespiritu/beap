@@ -5,7 +5,7 @@
     <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <a href="http://localhost:8080/beap/public/calamities" class="btn btn-light">Go back</a>
+                    <a href="http://localhost:85/beap/public/calamities" class="btn btn-light">Go back</a>
                     <br/><br/>
                         <div class="card">
                             <div class="card-header">{{$calamity->name}}</div>
@@ -61,7 +61,7 @@
                                         @if(!Auth::guest())
                                             @if(Auth::user()->id == $calamity->user_id)
                                                 <td>
-                                                    <a href="http://localhost:8080/beap/public/calamities/{{$calamity->calamityID}}/edit" class="btn btn-light">Edit Calamity</a>
+                                                    <a href="http://localhost:85/beap/public/calamities/{{$calamity->calamityID}}/edit" class="btn btn-light">Edit Calamity</a>
                                                 </td>
                                                 <td>
                                                     {!! Form::open(['action' => ['CalamitiesController@destroy', $calamity->calamityID], 'method' => 'POST', 'class' => 'pull-right']) !!}

@@ -15,6 +15,7 @@
     </div>
 
     <div class="form-group">
+        {{Form::label('illustration_image', 'Illustration image')}}<br/>
         {{Form::file('illustration_image')}}
     </div>
 
