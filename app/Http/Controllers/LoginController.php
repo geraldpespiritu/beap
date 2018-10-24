@@ -13,7 +13,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        //ITD GIVEN CODE for API
+        //ITD GIVEN CODE for API...
         $post = array(
             'key'=>'7njer8asdbhjq782JASDF89AFDdfw3fd3q7',
             'user'=> 'xdirector',
