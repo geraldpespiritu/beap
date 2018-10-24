@@ -12,7 +12,8 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                    <form method="POST" action="/beap/public/login" aria-label="{{ __('Login') }}">
+                    {{-- <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">--}}
                         @csrf
 
                         <div class="form-group row">
