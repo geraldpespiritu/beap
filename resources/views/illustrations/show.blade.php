@@ -33,7 +33,7 @@
                                     <font color="#f08080"> Illustration Image: </font>
                                 </td>
                                 <td>
-                                    <img style="width:50%"  src="{{ asset('storage/illustration_images/' . $illustration->illustrationImage) }}" />
+                                    <img style="width:100%"  src="{{ asset('storage/illustration_images/' . $illustration->illustrationImage) }}" />
 
                                 </td>
                             </tr>
