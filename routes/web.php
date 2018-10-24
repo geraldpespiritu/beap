@@ -56,7 +56,7 @@ Route::get('/services', 'PagesController@services');
 Route::get('/login', 'LoginController@index');
 
 //Login for API ng ITD
-// test
+// test 2
 Route::post('/testlogin', 'LoginController@login');
 
 
