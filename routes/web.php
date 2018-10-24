@@ -51,7 +51,15 @@ Route::get('/', function(){
 /*Route::get('/', 'PagesController@index');*/
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
-Route::get('/login', 'PagesController@login');
+
+//Login
+Route::get('/login', 'LoginController@index');
+
+//Login for API ng ITD
+// test 2, 3, 4, 5, 6
+Route::post('/testlogin', 'LoginController@login');
+
+
 
 Route::get('/beapDashboard', 'BeapDashboardController@getUsers');
 

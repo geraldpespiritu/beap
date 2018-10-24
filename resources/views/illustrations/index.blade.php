@@ -5,7 +5,7 @@
     <h1 style="text-align:center">Illustrations</h1>
 
     <div class="card-body">
-        <a href="http://localhost:8080/beap/public/illustrations/create" class="btn btn-warning">Add Illustration</a>
+        <a href="http://localhost:85/beap/public/illustrations/create" class="btn btn-warning">Add Illustration</a>
     </div>
     @if(count($illustrations) > 0)
         @foreach($illustrations as $illustration)
@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <h3><a href="http://localhost:8080/beap/public/illustrations/{{$illustration->illustrationID}}"> {{$illustration->illustrationName}}</a></h3>
+                        <h3><a href="http://localhost:85/beap/public/illustrations/{{$illustration->illustrationID}}"> {{$illustration->illustrationName}}</a></h3>
                         <small>Written on {{$illustration->created_at}} by {{$illustration->user->name}}</small>
                     </div>
                 </div>
