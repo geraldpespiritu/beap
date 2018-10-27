@@ -60,7 +60,7 @@
                     <a class="nav-link" href="http://localhost:85/beap/public/about">About</a>
                 </li>
                 <li class="active">
-                    <a class="nav-link" href="http://localhost:85/beap/public/services">Services</a>
+                    <a class="nav-link" href="http://local  host:85/beap/public/services">Services</a>
                 </li>--}}
                 <li class="active">
                     <a class="nav-link" href="/posts">Blog</a>
