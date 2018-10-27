@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <a href="http://localhost:85/beap/public/illustrations" class="btn btn-light">Go back</a>
+                <a href="/illustrations" class="btn btn-light">Go back</a>
                 <br/><br/>
                 <div class="card">
                     <div class="card-header">{{$illustration->illustrationName}}</div>
@@ -51,7 +51,7 @@
                         @if(!Auth::guest())
                             @if(Auth::user()->id == $illustration->user_id)
                                 <td>
-                                    <a href="http://localhost:85/beap/public/illustrations/{{$illustration->illustrationID}}/edit" class="btn btn-light">Modify Illustration</a>
+                                    <a href="/illustrations/{{$illustration->illustrationID}}/edit" class="btn btn-light">Modify Illustration</a>
                                 </td>
                             @endif
                         @endif

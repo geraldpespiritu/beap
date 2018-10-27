@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    use AuthenticatesUsers;
+
     public function index()
     {
         return view("/login");
     }
 
-    public function login(Request $request)
+    public function getLogin()
     {
+        echo "xyz";
         //ITD GIVEN CODE for API...
         $post = array(
             'key'=>'7njer8asdbhjq782JASDF89AFDdfw3fd3q7',
@@ -32,7 +35,7 @@ class LoginController extends Controller
         $server_output = curl_exec($ch);
 
         curl_close ($ch);
-        if($server_output == false){
+        if($server_output != "Y"){
             return redirect()->to("/about");
         }
         else{
