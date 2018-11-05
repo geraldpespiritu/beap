@@ -71,6 +71,9 @@
                 <li class="active">
                     <a class="nav-link" href="/illustrations">Illustrations</a>
                 </li>
+                <li class="active">
+                    <a class="nav-link" href="/report">Reports</a>
+                </li>
             </ul>
 
 

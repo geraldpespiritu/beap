@@ -14,10 +14,6 @@
         {{Form::textarea('description', $calamity->description, [/*'id' => 'editor1',*/'class' => 'form-control', 'placeholder' => 'Description'])}}
     </div>
 
-    <div class ="form-group">
-        {{Form::label('priority', 'Level of Priority')}}
-        {{Form::text('priority', $calamity->priority, ['class' => 'form-control', 'placeholder' => 'Priority'])}}
-    </div>
 
     <div class="form-group">
         {{Form::label('image', 'Image')}}<br/>

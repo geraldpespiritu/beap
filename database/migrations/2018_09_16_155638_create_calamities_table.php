@@ -18,7 +18,6 @@ class CreateCalamitiesTable extends Migration
             $table->string('name');
             $table->mediumText('description');
             $table->string('image');
-            $table->string('priority');
             $table->string('api_token', 60)->unique();
             $table->timestamps();
         });

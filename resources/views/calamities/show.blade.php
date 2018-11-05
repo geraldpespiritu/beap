@@ -27,14 +27,7 @@
                                                 {!! $calamity->description!!}
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <font color="#f08080"> Calamity Priority: </font>
-                                            </td>
-                                            <td>
-                                                {!! $calamity->priority!!}
-                                            </td>
-                                        </tr>
+
 
                                         <tr>
                                             <td>

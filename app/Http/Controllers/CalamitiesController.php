@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Calamity;
 use DB;
+use Auth;
 
 class CalamitiesController extends Controller
 {
@@ -41,7 +42,6 @@ class CalamitiesController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'priority' => 'required',
             'image' => 'image|max:1999',
             'image' => 'required',
             'api_token' => str_random(60),
@@ -73,11 +73,11 @@ class CalamitiesController extends Controller
         $moveImage = $request->file('image')->move('storage/calamity_images', $filename);
 
         // Create Calamity
+        $auth = Auth::user();
         $calamity = new Calamity;
         $calamity->name = $request->input('name');
         $calamity->description = $request->input ('description');
-        $calamity->priority = $request->input ('priority');
-        $calamity->user_id = auth()->user()->id;
+        $calamity->user_id = $auth;
         $calamity->image = $filename;
         $calamity->api_token = str_random(60);
         $calamity->save();
@@ -128,7 +128,6 @@ class CalamitiesController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'priority' => 'required',
             'image' => 'image|max:1999',
             'image' => 'required',
         ]);
@@ -140,7 +139,6 @@ class CalamitiesController extends Controller
         $calamity = Calamity::find($calamityID);
         $calamity->name = $request->input('name');
         $calamity->description = $request->input ('description');
-        $calamity->priority = $request->input ('priority');
         if($request->hasFile('image')){
             $calamity->image = $filename;
         }

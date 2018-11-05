@@ -6,7 +6,7 @@
     <h1 style="text-align:center">Calamities</h1>
 
     <div class="card-body">
-            <a href="/calamities/create" class="btn btn-danger">Add Calamity</a>
+            <a href="/createCalamity" class="btn btn-danger">Add Calamity</a>
     </div>
     @if(count($calamities) > 0)
         @foreach($calamities as $calamity)

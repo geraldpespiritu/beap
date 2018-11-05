@@ -68,7 +68,21 @@ Route::resource('calamities', 'CalamitiesController');
 
 Route::resource('illustrations', 'IllustrationsController');
 
+Route::get('/createCalamity', 'PagesController@createCalamity');
+
 
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+//Route::get('/report',array('as'=>'report','uses'=>'ItemController@report'));
+Route::get('/report', 'ItemController@report');
+Route::get('/pdf', 'ItemPrintController@reportPrint');
+
+/**
+Route::get('director/login','DirectorAuth\DirectorLoginController@showLoginForm')->name('director.login');
+Route::post('director/login','DirectorAuth\DirectorLoginController@login')->name('director.login.submit');
+Route::post('director/logout','DirectorAuth\DirectorLoginController@directorLogout')->name('director.logout');
+
+Route::get('director/', 'DirectorController@index')->name('director.dashboard');
+ **/
