@@ -35,7 +35,7 @@ class DirectorLoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:director',['except' => ['directorLogout']]);
+        $this->middleware('guest:director', ['except' => ['directorLogout']]);
     }
 
     public function username()
@@ -50,17 +50,17 @@ class DirectorLoginController extends Controller
 
     public function login(Request $request)
     {
-        $this->validate($request, [
+
+        /*$this->validate($request, [
             'username' => 'required',
             'password' => 'required'
         ]);
         if (Auth::guard('director')->attempt(['username' => $request->username,
-            'password' => $request->password], $request->remember))
-        {
+            'password' => $request->password], $request->remember)) {
             return redirect()->intended(route('director.dashboard'));
         }
-        session()->flash('alert','Incorrect username/password!');
-        return redirect()->back()->withInput($request->only('username','remember'));
+        session()->flash('alert', 'Incorrect username/password!');
+        return redirect()->back()->withInput($request->only('username', 'remember'));
     }
 
     public function directorLogout()
@@ -68,5 +68,6 @@ class DirectorLoginController extends Controller
         Auth::guard('director')->logout();
         //return redirect('/');
         return redirect(\URL::previous());
+    }*/
     }
 }
