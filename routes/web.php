@@ -45,7 +45,7 @@ Route::get('/welcome', function(){
 });
 
 Route::get('/', function(){
-  return view('auth.login');
+    return view('auth.login');
 });
 
 /*Route::get('/', 'PagesController@index');*/
@@ -53,10 +53,9 @@ Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
 //Login
-Route::get('/login', 'LoginController@index');
+/*Route::post('/login', 'LoginController@login');*/
 
 //Login for API ng ITD
-// test 2, 3, 4, 5, 6
 Route::post('/testlogin', 'LoginController@login');
 
 
@@ -69,7 +68,21 @@ Route::resource('calamities', 'CalamitiesController');
 
 Route::resource('illustrations', 'IllustrationsController');
 
+Route::get('/createCalamity', 'PagesController@createCalamity');
+
 
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+//Route::get('/report',array('as'=>'report','uses'=>'ItemController@report'));
+Route::get('/report', 'ItemController@report');
+Route::get('/pdf', 'ItemPrintController@reportPrint');
+
+/**
+Route::get('director/login','DirectorAuth\DirectorLoginController@showLoginForm')->name('director.login');
+Route::post('director/login','DirectorAuth\DirectorLoginController@login')->name('director.login.submit');
+Route::post('director/logout','DirectorAuth\DirectorLoginController@directorLogout')->name('director.logout');
+
+Route::get('director/', 'DirectorController@index')->name('director.dashboard');
+ **/

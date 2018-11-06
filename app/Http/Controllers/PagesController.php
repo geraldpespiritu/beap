@@ -34,4 +34,8 @@ class PagesController extends Controller
         $title = 'BEAP Dashboard';
         return view('pages.beapDashboard')-> with('title', $title);
     }
+
+    public function createCalamity(){
+        return view('calamities.create');
+    }
 }

@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <h3><a href="http://localhost:85/beap/public/illustrations/{{$illustration->illustrationID}}"> {{$illustration->illustrationName}}</a></h3>
+                        <h3><a href="/illustrations/{{$illustration->illustrationID}}"> {{$illustration->illustrationName}}</a></h3>
                         <small>Written on {{$illustration->created_at}} by {{$illustration->user->name}}</small>
                     </div>
                 </div>

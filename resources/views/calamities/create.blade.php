@@ -21,10 +21,7 @@
         </div>
 
         <div class="col-md-6">
-            <div class ="form-group">
-                {{Form::label('priority', 'Level of Priority')}}
-                {{Form::text('priority', '', ['class' => 'form-control', 'placeholder' => 'Priority'])}}
-            </div>
+
 
             <div class="form-group">
                 {{Form::label('image', 'Image')}}<br/>

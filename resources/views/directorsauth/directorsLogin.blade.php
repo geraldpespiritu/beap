@@ -7,21 +7,21 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="text-center">
-                    <img align="center" height="250px" width="250px" src="{{URL::asset('/images/beaplogo.jpg')}}" />
-                </div>
-
                 <div class="card-body">
-                    {{--<form method="POST" action="login" aria-label="{{ __('Login') }}">--}}
-                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                    <form method="POST" action="{{ route('director.login.submit') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="userName" class="col-sm-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                            <label for="username" class="col-sm-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="userName" type="userName" class="form-control{{ $errors->has('userName') ? ' is-invalid' : '' }}" name="userName" value="{{ old('userName') }}" required autofocus>
+                                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
+                                @if ($errors->has('username'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                      {{--  <div class="form-group row">
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -49,7 +49,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>--}}
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
@@ -57,9 +57,9 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                {{--<a class="btn btn-link" href="{{ route('password.request')  }}">
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
-                                </a>--}}
+                                </a>
                             </div>
                         </div>
                     </form>
