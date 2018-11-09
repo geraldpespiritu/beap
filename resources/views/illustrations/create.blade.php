@@ -3,7 +3,7 @@
 @section('content')
     <br/>
     <h1>Add Illustration</h1>
-    {!! Form::open(['action' => 'IllustrationsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['action' => 'ExitsController', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 
     <div class="row">
 

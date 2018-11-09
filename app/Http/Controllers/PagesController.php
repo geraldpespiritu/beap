@@ -31,7 +31,7 @@ class PagesController extends Controller
     }
 
     public function beapDashboard(){
-        $title = 'BEAP Dashboard';
+        $title = 'BEAP DashboardController';
         return view('pages.beapDashboard')-> with('title', $title);
     }
 }

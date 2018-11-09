@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -44,36 +45,62 @@ class LoginController extends Controller
         return 'userName';
     }
 
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
     //UNCOMMENT BELOW FOR THE USAGE OF API OF ITD
- /*   public function login(Request $request) {
+    public function login(Request $request)
+    {
+
+        //email
+
         $post = array(
-            'key'=>'7njer8asdbhjq782JASDF89AFDdfw3fd3q7',
-            'user'=> $request->input('userName'),
-            'pass'=> $request->input('password')
+            'key' => '7njer8asdbhjq782JASDF89AFDdfw3fd3q7',
+            'user' => $request->input('userName'),
+            'pass' => $request->input('password'),
         );
 
+        //var $username2 = $username1;
+
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://www.benilde.edu.ph/testapi/service.asmx/Authenticate");
+        curl_setopt($ch, CURLOPT_URL, "http://www.benilde.edu.ph/testapi/service.asmx/Authenticate");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
         $server_output = curl_exec($ch);
 
-        var_dump(curl_errno($ch));
-        curl_close ($ch);
+        curl_close($ch);
 
-        var_dump($server_output);
-        var_dump(http_build_query($post));
-return "Result is: $server_output (username: " . $request->input('userName') . " password: " . $request->input('password') . ")";
-        if($server_output == "Y"){
-            return redirect()->to("/about");
+        //echo($request->input('userName').substring(3));
+
+
+        //echo $username1.sub
+
+        //echo ($username1.substring(1));
+        //echo($username1.substring(3));
+
+
+        if (substr($post['user'], 1, 1) != "1" && $server_output == "Y") {
+            return redirect()->to("calamities");
+        } else {
+            return redirect()->to("errorLogin");
         }
-        else{
-            return redirect()->to("/BeapDashboard");
+
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        if (Auth::guard('director')->attempt(['username' => $request->username,
+            'password' => $request->password], $request->remember)) {
+            return redirect()->intended(route('director.dashboard'));
         }
-    }*/
+        session()->flash('alert', 'Incorrect username/password!');
+        return redirect()->back()->withInput($request->only('username', 'remember'));
+    }
 }

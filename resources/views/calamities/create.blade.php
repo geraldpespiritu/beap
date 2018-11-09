@@ -9,8 +9,8 @@
 
         <div class="col-md-6">
             <div class ="form-group">
-                {{Form::label('name', 'Calamity Name')}}
-                {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}
+                {{Form::label('calamityName', 'Calamity Name')}}
+                {{Form::text('calamityName', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}
             </div>
 
             <div class ="form-group">
@@ -21,10 +21,6 @@
         </div>
 
         <div class="col-md-6">
-            <div class ="form-group">
-                {{Form::label('priority', 'Level of Priority')}}
-                {{Form::text('priority', '', ['class' => 'form-control', 'placeholder' => 'Priority'])}}
-            </div>
 
             <div class="form-group">
                 {{Form::label('image', 'Image')}}<br/>

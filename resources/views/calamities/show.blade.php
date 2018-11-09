@@ -8,7 +8,7 @@
                     <a href="/calamities" class="btn btn-light">Go back</a>
                     <br/><br/>
                         <div class="card">
-                            <div class="card-header">{{$calamity->name}}</div>
+                            <div class="card-header">{{$calamity->calamityName}}</div>
                                 <div class="card-body">
                                     <table class="table table-striped">
                                         <tr>
@@ -16,7 +16,7 @@
                                                 <font color="#f08080"> Calamity Name: </font>
                                             </td>
                                             <td>
-                                                {{$calamity->name}}
+                                                {{$calamity->calamityName}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -25,14 +25,6 @@
                                             </td>
                                             <td>
                                                 {!! $calamity->description!!}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <font color="#f08080"> Calamity Priority: </font>
-                                            </td>
-                                            <td>
-                                                {!! $calamity->priority!!}
                                             </td>
                                         </tr>
 

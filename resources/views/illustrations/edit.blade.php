@@ -3,7 +3,7 @@
 @section('content')
     <br/>
     <h1>Modify Illustration</h1>
-    {!! Form::open(['action' => ['IllustrationsController@update', $illustration->illustrationID], 'method' => 'POST']) !!}
+    {!! Form::open(['action' => ['ExitsController', $illustration->illustrationID], 'method' => 'POST']) !!}
     <div class ="form-group">
         {{Form::label('illustrationName', 'Illustration Name')}}
         {{Form::text('illustrationName', $illustration->illustrationName, ['class' => 'form-control', 'placeholder' => 'Name'])}}

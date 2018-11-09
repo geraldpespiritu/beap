@@ -36,6 +36,8 @@ class LoginController extends Controller
 
         curl_close ($ch);
         if($server_output != "Y"){
+            $user = auth::user();
+            $token = $user->createToken($request->token, ['place-orders'])->accessToken;
             return redirect()->to("/about");
         }
         else{

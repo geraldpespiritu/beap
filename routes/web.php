@@ -60,15 +60,21 @@ Route::post('/testlogin', 'LoginController@login');
 
 
 
-Route::get('/beapDashboard', 'BeapDashboardController@getUsers');
+Route::resource('/dashboard', 'DashboardController');
+
 
 Route::resource('posts','PostsController');
 
 Route::resource('calamities', 'CalamitiesController');
 
-Route::resource('illustrations', 'IllustrationsController');
+Route::resource('illustrations', 'ExitsController');
 
+Route::get('/report', 'ItemController@report');
+
+Route::get('/pdf', 'ItemPrintController@reportPrint');
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/errorLogin', function() {
+    return view('pages.errorLogin');
+});

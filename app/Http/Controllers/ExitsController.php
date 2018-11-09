@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Illustration;
 use Illuminate\Http\Request;
 
-class IllustrationsController extends Controller
+class ExitsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class IllustrationsController extends Controller
      */
     public function index()
     {
-        $illustrations  = Illustration::orderBy('created_at', 'desc')->paginate(10);
-        return view('illustrations.index')->with('illustrations', $illustrations);
+        $exits  = Exit::orderBy('created_at', 'desc')->paginate(10);
+        return view('exits.index')->with('exits', $exits);
     }
 
     /**
@@ -25,7 +25,7 @@ class IllustrationsController extends Controller
      */
     public function create()
     {
-        return view('illustrations.create');
+        return view('exits.create');
     }
 
     /**

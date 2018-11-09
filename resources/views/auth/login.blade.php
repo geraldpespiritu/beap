@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="card-body">
-                    {{--<form method="POST" action="login" aria-label="{{ __('Login') }}">--}}
+                   {{-- <form method="POST" action="login" aria-label="{{ __('Login') }}">--}}
                      <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
 
