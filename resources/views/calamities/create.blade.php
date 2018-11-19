@@ -14,7 +14,7 @@
             </div>
 
             <div class ="form-group">
-                {{Form::label('description', 'Description of the Calamity')}}
+                {{Form::label('description', 'Instruction of the Calamity')}}
                 {{Form::textarea('description', '', [/*'id' => 'editor1',*/'class' => 'form-control', 'placeholder' => 'Description'])}}
             </div>
 

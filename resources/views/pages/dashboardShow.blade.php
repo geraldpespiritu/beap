@@ -24,27 +24,32 @@
                                     <th>Time out</th>
                                     <th>Gate Entry / Exit</th>
                                 </tr>
+                                @if(count($vattendance) > 0)
+                                    @foreach($vattendance as $vattendances)
+                                        <tr>
+                                            <td>{{$vattendances->timein}}</td>
+                                            <td>{{$vattendances->timeout}}</td>
+                                            <td>{{$vattendances->gatedesc}}</td>
+                                        </tr>
+                                    @endforeach
 
-                                @foreach($vattendance as $vattendance)
-                                    <tr>
-                                        <td>{{$vattendance->timein}}</td>
-                                        <td>{{$vattendance->timeout}}</td>
-                                        <td>{{$vattendance->gatedesc}}</td>
-                                    </tr>
-                                @endforeach
-
-                                <p>
-                                    Status:
-                                    @if ($vattendance->gatedesc != null && $vattendance->timeout != "0000-00-00 00:00:00")
-                                        <b>Inactive</b>
-                                    @elseif ($vattendance->gatedesc == null && $vattendance->timein == "0000-00-00 00:00:00" && $vattendance->timeout == "0000-00-00 00:00:00")
-                                        <b>Inactive</b>
-                                    @else
-                                        <b>Active</b>
-                                    @endif
-                                </p>
-
+                                    <p>
+                                        Status:
+                                        @if ($vattendances->gatedesc != null && $vattendances->timeout != "0000-00-00 00:00:00")
+                                            <b>Inactive</b>
+                                        @elseif ($vattendances->gatedesc == null && $vattendances->timein == "0000-00-00 00:00:00" && $vattendances->timeout == "0000-00-00 00:00:00")
+                                            <b>Inactive</b>
+                                        @else
+                                            <b>Active</b>
+                                        @endif
+                                    </p>
                             </table>
+
+                            @else
+                                <p>No records found</p>
+                            @endif
+
+                            {{$vattendance->links() }}
                         </div>
                     </div>
                 </div>

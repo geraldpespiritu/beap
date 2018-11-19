@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Illustration;
 use Illuminate\Http\Request;
 
-class ExitsController extends Controller
+class IllustrationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ExitsController extends Controller
      */
     public function index()
     {
-        $exits  = Exit::orderBy('created_at', 'desc')->paginate(10);
-        return view('exits.index')->with('exits', $exits);
+        $illustrations  = Illustration::orderBy('created_at', 'desc')->paginate(10);
+        return view('illustrations.index')->with('illustrations', $illustrations);
     }
 
     /**
@@ -25,7 +25,7 @@ class ExitsController extends Controller
      */
     public function create()
     {
-        return view('exits.create');
+        return view('illustrations.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class ExitsController extends Controller
         $illustration = new Illustration;
         $illustration->illustrationName = $request->input('illustrationName');
         $illustration->illustrationDescription = $request->input ('illustrationDescription');
-        $illustration->user_id = auth()->user()->id;
+        //$illustration->user_id = auth()->user()->id;
         $illustration->illustrationImage = $filename;
         $illustration->save();
 
@@ -80,9 +80,9 @@ class ExitsController extends Controller
         $illustration = Illustration::find($illustrationID);
 
         // Check for correct user
-        if(auth()->user()->id !== $illustration->user_id){
-            return redirect('/illustrations')->with('error', 'Unauthorized Page');
-        }
+       // if(auth()->user()->id !== $illustration->user_id){
+         //   return redirect('/illustrations')->with('error', 'Unauthorized Page');
+        //}
 
         return view('illustrations.edit')->with('illustration', $illustration);
     }

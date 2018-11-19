@@ -41,9 +41,8 @@ class CalamitiesController extends Controller
         $this->validate($request, [
             'calamityName' => 'required',
             'description' => 'required',
-            'image' => 'image|max:1999',
-            'image' => 'required',
-            'api_token' => str_random(60),
+            'image' => 'mimes:jpeg,png,jpg,gif',
+            'image' => 'image|required|max:1999'
         ]);
 
      /*   // Handle File Upload
@@ -126,8 +125,8 @@ class CalamitiesController extends Controller
         $this->validate($request, [
             'calamityName' => 'required',
             'description' => 'required',
-            'image' => 'image|max:1999',
-            'image' => 'required',
+            'image' => 'mimes:jpeg,png,jpg,gif',
+            'image' => 'image|required|max:1999'
         ]);
 
 

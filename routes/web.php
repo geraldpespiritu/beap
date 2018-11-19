@@ -67,7 +67,7 @@ Route::resource('posts','PostsController');
 
 Route::resource('calamities', 'CalamitiesController');
 
-Route::resource('illustrations', 'ExitsController');
+Route::resource('illustrations', 'IllustrationsController');
 
 Route::get('/report', 'ItemController@report');
 

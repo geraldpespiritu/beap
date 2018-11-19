@@ -10,7 +10,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $dashboard = Vidinfo::all();
+        $dashboard = Vidinfo::paginate(10);
 //        dd($dashboard);
         return view('pages.dashboard', compact('dashboard'));
 
@@ -23,9 +23,12 @@ class DashboardController extends Controller
       /*dd($dashboard);*/
         $vattendance = Vattendance::where('idno', $idno)
             /*->orderBy('timein', 'asc')->where('timein', '!=','0000-00-00 00:00:00')*/
-            ->get();
+            ->paginate(10);
 
     /* dd($vattendance);*/
            return view('pages.dashboardShow')->with(['dashboard' => $dashboard, 'vattendance' => $vattendance]);
     }
 }
+
+/*$calamities  = Calamity::orderBy('created_at', 'desc')->paginate(10);
+return view('calamities.index')->with('calamities', $calamities);*/

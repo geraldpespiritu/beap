@@ -53,7 +53,6 @@ class LoginController extends Controller
     //UNCOMMENT BELOW FOR THE USAGE OF API OF ITD
     public function login(Request $request)
     {
-
         //email
 
         $post = array(
@@ -77,14 +76,6 @@ class LoginController extends Controller
 
         curl_close($ch);
 
-        //echo($request->input('userName').substring(3));
-
-
-        //echo $username1.sub
-
-        //echo ($username1.substring(1));
-        //echo($username1.substring(3));
-
 
         if (substr($post['user'], 1, 1) != "1" && $server_output == "Y") {
             return redirect()->to("calamities");
@@ -92,15 +83,17 @@ class LoginController extends Controller
             return redirect()->to("errorLogin");
         }
 
-        $this->validate($request, [
-            'username' => 'required',
-            'password' => 'required'
-        ]);
-        if (Auth::guard('director')->attempt(['username' => $request->username,
-            'password' => $request->password], $request->remember)) {
-            return redirect()->intended(route('director.dashboard'));
-        }
-        session()->flash('alert', 'Incorrect username/password!');
-        return redirect()->back()->withInput($request->only('username', 'remember'));
+      // echo ($post['user']);
+
+//        $this->validate($request, [
+//            'username' => 'required',
+//            'password' => 'required'
+//        ]);
+//        if (Auth::guard('director')->attempt(['username' => $request->username,
+//            'password' => $request->password], $request->remember)) {
+//            return redirect()->intended(route('director.dashboard'));
+//        }
+//        session()->flash('alert', 'Incorrect username/password!');
+//        return redirect()->back()->withInput($request->only('username', 'remember'));
     }
 }

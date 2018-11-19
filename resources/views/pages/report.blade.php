@@ -50,6 +50,7 @@
             @endforeach
             </tbody>
         </table>
+        {{$items->links()}}
     </div>
 </div>
 <a href="{{action('ItemPrintController@reportPrint')}}" class="btn btn-default"><i class="mdi mdi-file-pdf"></i>PDF</a>
