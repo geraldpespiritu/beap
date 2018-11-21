@@ -48,32 +48,29 @@ Route::get('/', function(){
   return view('auth.login');
 });
 
-/*Route::get('/', 'PagesController@index');*/
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
-//Login
-/*Route::post('/login', 'LoginController@login');*/
+Auth::routes();
 
 //Login for API ng ITD
 Route::post('/testlogin', 'LoginController@login');
 
-
-
+//Dashboard
 Route::resource('/dashboard', 'DashboardController');
+Route::post('/userLogsFilter', 'DashboardController@userLogsFilter');
+Route::post('/userLogsFilter2', 'DashboardController@userLogsFilter2');
 
+//Reports
+Route::get('/report', 'ItemController@report');
+Route::post('/reportsFilter2', 'ItemController@reportsFilter');
+Route::get('/pdf', 'ItemPrintController@reportPrint');
 
 Route::resource('posts','PostsController');
 
 Route::resource('calamities', 'CalamitiesController');
 
 Route::resource('illustrations', 'IllustrationsController');
-
-Route::get('/report', 'ItemController@report');
-
-Route::get('/pdf', 'ItemPrintController@reportPrint');
-
-Auth::routes();
 
 Route::get('/errorLogin', function() {
     return view('pages.errorLogin');

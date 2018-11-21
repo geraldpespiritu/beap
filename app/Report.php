@@ -16,4 +16,8 @@ class Report extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function schoolyear(){
+        return $this->belongsTo('App\SchoolYear');
+    }
 }

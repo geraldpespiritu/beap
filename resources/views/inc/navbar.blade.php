@@ -1,5 +1,5 @@
 {{--Got the code from: view-source:http://getbootstrap.com/docs/4.1/examples/starter-template/--}}
-
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <nav class="navbar navbar-expand-md">
     <div class="container">
 
@@ -43,7 +43,9 @@
 
 
             <!-- Right Side Of Navbar -->
+
             <ul class="navbar-nav ml-auto">
+
                 <!-- Authentication Links -->
                 {{--@guest
                     <li class="nav-item">
@@ -53,8 +55,11 @@
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                 @else--}}
+                <h5>{{session('username')}}</h5>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+
                             <span class="caret"></span>
                         </a>
 

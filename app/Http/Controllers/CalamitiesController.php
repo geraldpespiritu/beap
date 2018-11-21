@@ -76,7 +76,7 @@ class CalamitiesController extends Controller
         $calamity->description = $request->input ('description');
       //  $calamity->user_id = auth()->user()->id;
         $calamity->image = $filename;
-        $calamity->api_token = str_random(60);
+       // $calamity->api_token = str_random(60);
         $calamity->save();
 
         return redirect('/calamities')->with('success', 'Calamity Created');
@@ -155,9 +155,9 @@ class CalamitiesController extends Controller
         $calamity = DB::find($calamityID);
 
         // Check for correct user
-        /*if(auth()->user()->id !== $calamity->user_id){
+        if(auth()->user()->id !== $calamity->user_id){
             return redirect('/calamities')->with('error', 'Unauthorized Page');
-        }*/
+        }
 
         $calamity->delete();
         return redirect('/calamities')->with('success', 'Post Removed');

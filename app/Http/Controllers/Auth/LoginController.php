@@ -78,10 +78,13 @@ class LoginController extends Controller
 
 
         if (substr($post['user'], 1, 1) != "1" && $server_output == "Y") {
-            return redirect()->to("calamities");
+            session(['username' => $request->get('userName')]);
+                return redirect()->to("calamities");
         } else {
             return redirect()->to("errorLogin");
         }
+
+
 
       // echo ($post['user']);
 

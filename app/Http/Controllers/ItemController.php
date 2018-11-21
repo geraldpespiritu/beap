@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Report;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use DB;
 use PDF;
 
@@ -33,6 +34,20 @@ class ItemController extends Controller
 //        if ($request->has('download')) {
 //            $pdf = PDF::loadView('report');
 //            return $pdf->download('report.pdf');
+    }
+
+    public function reportsFilter(Request $request)
+    {
+        date_default_timezone_set('Asia/Manila');
+        $start = Carbon::parse($request->start)->startOfDay();
+        $end = Carbon::parse($request->end)->endOfDay();
+
+        $items = Report::orderBy('created_at', 'desc')
+            -> whereBetween('created_at', array(new Carbon($start), new Carbon($end)))
+            -> paginate(10);
+
+        return view('pages.report', compact('items'));
+
     }
 
 

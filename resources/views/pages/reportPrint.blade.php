@@ -3,8 +3,20 @@
 <head>
     <title>BEAP</title>
     <style type="text/css">
+        img.logo {
+            position: absolute;
+            right: 10px;
+            padding-right: 8px;
+            top: 4px;
+        }
 
-        table tr, td {
+        table {
+            font-size: 18px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        tr, td {
             border: 1px solid black;
             border-collapse: collapse;
             padding: 15px;
@@ -13,48 +25,52 @@
 
         /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
         @media (max-width: 600px) {
-            nav, table, th, td {
+            nav, table, tr, td {
                 width: 100%;
                 height: auto;
             }
         }
     </style>
 </head>
-<table style="width:100%">
-    <tr>
-        <td><img src="THESISLOGO.jpg" style="width:30%"/></td>
-        <td>
-            <h1>BEAP</h1>
-            <?php
-            $script_tz = date_default_timezone_set("Asia/Hong_Kong");
-            echo date("m-d-Y");
-            ?>
-        </td>
-    <tr>
-</table>
+<div class="row">
+    <div class="col-md-6">
+        <img src="THESISLOGO.jpg" style="width:30%" class="logo"/>
+    </div>
+    <div class="col-md-6">
+        <h1>BEAP</h1>
+        <?php
+        $script_tz = date_default_timezone_set("Asia/Hong_Kong");
+        echo date("m-d-Y");
+        ?>
+    </div>
+</div>
 <br/>
-    <body>
-    <div class="container">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead>
+<br/>
+<br/>
+<br/>
+<br/>
+<body>
+
+<table>
+    <tr>
+        <td>Calamity Name</td>
+        <td>Date and Time</td>
+        <td>Remarks</td>
+    </tr>
+    @if(count($request) > 0)
+        @foreach ($request as $request)
             <tr>
-                <td>Calamity Name</td>
-                <td>Date and Time</td>
-                <td>Remarks</td>
+                <td>{{ $request->calamityName }}</td>
+                <td>{{ $request->created_at }}</td>
+                <td>{{ $request->remarks }}</td>
             </tr>
-                </thead>
-            <tbody>
-            @foreach ($request as $request)
-                <tr>
-                    <td>{{ $request->calamityName }}</td>
-                    <td>{{ $request->created_at }}</td>
-                    <td>{{ $request->remarks }}</td>
-                </tr>
-            </tbody>
-            @endforeach
-        </table>
+</table>
+@endforeach
+@else
+    <div align="center">
+        <h5 style="font-family:serif;">No records found.</h5>
     </div>
-    </div>
-    </body>
+@endif
+
+</body>
 </html>

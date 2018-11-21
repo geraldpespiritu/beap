@@ -28,7 +28,12 @@
 
                                 @foreach($dashboard as $value)
                                     <tr>
-                                        <td><a href="dashboard/{{$value->idno}}"> {{$value->fullname}}</a></td>
+                                        @if (substr($value->idno, 1, 1) != "1")
+
+                                            <td><a href="dashboard/{{$value->idno}}"> {{$value->fullname}}</a></td>
+                                        @else
+                                            <p>Employees</p>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </table>
