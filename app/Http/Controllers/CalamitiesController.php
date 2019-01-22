@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Calamity;
 use DB;
-use Auth;
 
 class CalamitiesController extends Controller
 {
@@ -40,11 +39,10 @@ class CalamitiesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'calamityName' => 'required',
             'description' => 'required',
-            'image' => 'image|max:1999',
-            'image' => 'required',
-            'api_token' => str_random(60),
+            'image' => 'mimes:jpeg,png,jpg,gif',
+            'image' => 'image|required|max:1999'
         ]);
 
      /*   // Handle File Upload
@@ -73,13 +71,12 @@ class CalamitiesController extends Controller
         $moveImage = $request->file('image')->move('storage/calamity_images', $filename);
 
         // Create Calamity
-        $auth = Auth::user();
         $calamity = new Calamity;
-        $calamity->name = $request->input('name');
+        $calamity->calamityName = $request->input('calamityName');
         $calamity->description = $request->input ('description');
-        $calamity->user_id = $auth;
+      //  $calamity->user_id = auth()->user()->id;
         $calamity->image = $filename;
-        $calamity->api_token = str_random(60);
+       // $calamity->api_token = str_random(60);
         $calamity->save();
 
         return redirect('/calamities')->with('success', 'Calamity Created');
@@ -109,9 +106,9 @@ class CalamitiesController extends Controller
         $calamity = Calamity::find($calamityID);
 
         // Check for correct user
-        if(auth()->user()->id !== $calamity->user_id){
+       /* if(auth()->user()->id !== $calamity->user_id){
             return redirect('/calamities')->with('error', 'Unauthorized Page');
-        }
+        }*/
 
         return view('calamities.edit')->with('calamity', $calamity);
     }
@@ -126,10 +123,10 @@ class CalamitiesController extends Controller
     public function update(Request $request, $calamityID)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'calamityName' => 'required',
             'description' => 'required',
-            'image' => 'image|max:1999',
-            'image' => 'required',
+            'image' => 'mimes:jpeg,png,jpg,gif',
+            'image' => 'image|required|max:1999'
         ]);
 
 
@@ -137,7 +134,7 @@ class CalamitiesController extends Controller
         $moveImage = $request->file('image')->move('storage/calamity_images', $filename);
 
         $calamity = Calamity::find($calamityID);
-        $calamity->name = $request->input('name');
+        $calamity->calamityName = $request->input('calamityName');
         $calamity->description = $request->input ('description');
         if($request->hasFile('image')){
             $calamity->image = $filename;
@@ -155,7 +152,7 @@ class CalamitiesController extends Controller
      */
     public function destroy($calamityID)
     {
-        $calamity = Calamity::find($calamityID);
+        $calamity = DB::find($calamityID);
 
         // Check for correct user
         if(auth()->user()->id !== $calamity->user_id){

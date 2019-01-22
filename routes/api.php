@@ -25,6 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('scope[]')->get('/user', function (Request $request) {
+    return $request->user();
+});
 //List illustrations
 Route::get('illustrations', 'NewIllustrationController@index');
 
@@ -48,3 +51,9 @@ Route::get('/calamities', 'API\CalamitiesApiController@index');
 
 //List Single Calamities
 Route::get('calamity/{calamityID}', 'API\CalamitiesApiController@show');
+
+/*
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::get('calamities', 'API\CalamitiesApiController@index');
+});*/
+

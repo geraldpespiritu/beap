@@ -40,9 +40,9 @@
 
                         </table>
                         <hr/>
-                        <small>Written on {{$illustration->created_at}} by {{$illustration->user->name}}</small>
+                        <small>Written on {{$illustration->created_at}} {{--by {{$illustration->user->name}}--}}</small>
                         <BR/>
-                        <small>Updated on {{$illustration->updated_at}} by {{$illustration->user->name}}</small>
+                        <small>Updated on {{$illustration->updated_at}}{{-- by {{$illustration->user->name}}--}}</small>
                         <hr/>
                     </div>
                 </div> <br/>

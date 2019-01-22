@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -44,14 +45,23 @@ class LoginController extends Controller
         return 'userName';
     }
 
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
     //UNCOMMENT BELOW FOR THE USAGE OF API OF ITD
     public function login(Request $request)
     {
+        //email
+
         $post = array(
             'key' => '7njer8asdbhjq782JASDF89AFDdfw3fd3q7',
             'user' => $request->input('userName'),
             'pass' => $request->input('password'),
         );
+
+        //var $username2 = $username1;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "http://www.benilde.edu.ph/testapi/service.asmx/Authenticate");
@@ -66,30 +76,27 @@ class LoginController extends Controller
 
         curl_close($ch);
 
-        if ($server_output == "Y") {
-            return redirect()->to("/about");
+
+        if (substr($post['user'], 1, 1) != "1" && $server_output == "Y") {
+            session(['username' => $request->get('userName')]);
+                return redirect()->to("calamities");
         } else {
-            return redirect()->to("/dashboard");
+            return redirect()->to("errorLogin");
         }
 
-        $this->validate($request, [
-            'username' => 'required',
-            'password' => 'required'
-        ]);
-        if (Auth::guard('director')->attempt(['username' => $request->username,
-            'password' => $request->password], $request->remember)) {
-            return redirect()->intended(route('director.dashboard'));
-        }
-        session()->flash('alert', 'Incorrect username/password!');
-        return redirect()->back()->withInput($request->only('username', 'remember'));
+
+
+      // echo ($post['user']);
+
+//        $this->validate($request, [
+//            'username' => 'required',
+//            'password' => 'required'
+//        ]);
+//        if (Auth::guard('director')->attempt(['username' => $request->username,
+//            'password' => $request->password], $request->remember)) {
+//            return redirect()->intended(route('director.dashboard'));
+//        }
+//        session()->flash('alert', 'Incorrect username/password!');
+//        return redirect()->back()->withInput($request->only('username', 'remember'));
     }
-
-
-public function directorLogout()
-{
-    Auth::guard('director')->logout();
-    //return redirect('/');
-    return redirect(\URL::previous());
-}
-
 }

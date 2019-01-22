@@ -36,4 +36,8 @@ class User extends Authenticatable
     public function calamities(){
         return $this->hasMany('App\Calamity');
     }
+
+    public function reports(){
+        return $this->hasMany('App\Report');
+    }
 }

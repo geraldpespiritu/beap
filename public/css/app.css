@@ -420,6 +420,7 @@ h4,
 h5,
 .h5 {
   font-size: 1.125rem;
+   color: #FFFFFF;
 }
 
 h6,
@@ -4621,6 +4622,7 @@ input[type="button"].btn-block {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: #417630;
 }
 
 .navbar > .container,
@@ -4646,11 +4648,13 @@ input[type="button"].btn-block {
   font-size: 1.125rem;
   line-height: inherit;
   white-space: nowrap;
+  color: #FFFFFF;
 }
 
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
+  color: #FFFFFF;
 }
 
 .navbar-nav {
@@ -4669,6 +4673,7 @@ input[type="button"].btn-block {
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
+  color: #FFFFFF;
 }
 
 .navbar-nav .dropdown-menu {

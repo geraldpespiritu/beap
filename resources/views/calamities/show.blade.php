@@ -8,7 +8,7 @@
                     <a href="/calamities" class="btn btn-light">Go back</a>
                     <br/><br/>
                         <div class="card">
-                            <div class="card-header">{{$calamity->name}}</div>
+                            <div class="card-header">{{$calamity->calamityName}}</div>
                                 <div class="card-body">
                                     <table class="table table-striped">
                                         <tr>
@@ -16,18 +16,17 @@
                                                 <font color="#f08080"> Calamity Name: </font>
                                             </td>
                                             <td>
-                                                {{$calamity->name}}
+                                                {{$calamity->calamityName}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <font color="#f08080"> Calamity Description:</font>
+                                                <font color="#f08080"> Calamity Instruction:</font>
                                             </td>
                                             <td>
                                                 {!! $calamity->description!!}
                                             </td>
                                         </tr>
-
 
                                         <tr>
                                             <td>
@@ -43,27 +42,20 @@
 
                                     </table>
                                         <hr/>
-                                            <small>Written on {{$calamity->created_at}} by {{$calamity->user->name}}</small>
+                                            <small>Written on {{$calamity->created_at}} </small>
                                                 <BR/>
-                                            <small>Updated on {{$calamity->updated_at}} by {{$calamity->user->name}}</small>
+                                            <small>Updated on {{$calamity->updated_at}} </small>
                                         <hr/>
                                 </div>
                             </div> <br/>
                                 <table>
                                     <tr>
-                                        @if(!Auth::guest())
-                                            @if(Auth::user()->id == $calamity->user_id)
+
                                                 <td>
                                                     <a href="/calamities/{{$calamity->calamityID}}/edit" class="btn btn-light">Edit Calamity</a>
                                                 </td>
-                                                <td>
-                                                    {!! Form::open(['action' => ['CalamitiesController@destroy', $calamity->calamityID], 'method' => 'POST', 'class' => 'pull-right']) !!}
-                                                    {{Form::hidden('_method', 'DELETE')}}
-                                                    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                                    {!! Form::close() !!}
-                                                </td>
-                                            @endif
-                                        @endif
+
+
                                     </tr>
                                 </table>
                                     <br/>

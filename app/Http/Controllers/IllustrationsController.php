@@ -50,7 +50,7 @@ class IllustrationsController extends Controller
         $illustration = new Illustration;
         $illustration->illustrationName = $request->input('illustrationName');
         $illustration->illustrationDescription = $request->input ('illustrationDescription');
-        $illustration->user_id = auth()->user()->id;
+        //$illustration->user_id = auth()->user()->id;
         $illustration->illustrationImage = $filename;
         $illustration->save();
 
@@ -80,9 +80,9 @@ class IllustrationsController extends Controller
         $illustration = Illustration::find($illustrationID);
 
         // Check for correct user
-        if(auth()->user()->id !== $illustration->user_id){
-            return redirect('/illustrations')->with('error', 'Unauthorized Page');
-        }
+       // if(auth()->user()->id !== $illustration->user_id){
+         //   return redirect('/illustrations')->with('error', 'Unauthorized Page');
+        //}
 
         return view('illustrations.edit')->with('illustration', $illustration);
     }

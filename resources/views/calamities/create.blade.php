@@ -9,19 +9,18 @@
 
         <div class="col-md-6">
             <div class ="form-group">
-                {{Form::label('name', 'Calamity Name')}}
-                {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}
+                {{Form::label('calamityName', 'Calamity Name')}}
+                {{Form::text('calamityName', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}
             </div>
 
             <div class ="form-group">
-                {{Form::label('description', 'Description of the Calamity')}}
+                {{Form::label('description', 'Instruction of the Calamity')}}
                 {{Form::textarea('description', '', [/*'id' => 'editor1',*/'class' => 'form-control', 'placeholder' => 'Description'])}}
             </div>
 
         </div>
 
         <div class="col-md-6">
-
 
             <div class="form-group">
                 {{Form::label('image', 'Image')}}<br/>

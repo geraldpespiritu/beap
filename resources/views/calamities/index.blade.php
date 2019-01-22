@@ -6,7 +6,7 @@
     <h1 style="text-align:center">Calamities</h1>
 
     <div class="card-body">
-            <a href="/createCalamity" class="btn btn-danger">Add Calamity</a>
+            <a href="calamities/create" class="btn btn-danger">Add Calamity</a>
     </div>
     @if(count($calamities) > 0)
         @foreach($calamities as $calamity)
@@ -18,8 +18,8 @@
                     </div>
 
                 <div class="col-sm-3">
-                    <h3><a href="/calamities/{{$calamity->calamityID}}"> {{$calamity->name}}</a></h3>
-                    <small>Written on {{$calamity->created_at}} by {{$calamity->user->name}}</small>
+                    <h3><a href="/calamities/{{$calamity->calamityID}}"> {{$calamity->calamityName}}</a></h3>
+                    <small>Written on {{$calamity->created_at}}{{-- by {{$calamity->user->name}}--}}</small>
                 </div>
 
                 </div>
